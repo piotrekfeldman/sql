@@ -31,11 +31,11 @@ SELECT * FROM employees WHERE position='it';
 
 -- Pobiera pracowników, którzy mają co najmniej 30 lat
 
-SELECT * FROM employees WHERE YEAR (birthdate) <= 1991;
+SELECT * FROM employees WHERE YEAR (birthdate) <= NOW() - INTERVAL 30 YEAR;
 
 -- Zwiększa wypłatę pracowników na wybranym stanowisku o 10%
 
-SELECT *, (salary*0.1 + salary) AS raised_salary FROM employees;
+UPDATE employees SET salary = (salary*0.1 + salary);
 
 -- Pobiera najmłodszego pracowników (uwzględnij przypadek, że może być kilku urodzonych tego samego dnia)
 
